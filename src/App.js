@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MainPage } from './components/MainPage/MainPage';
+import { MainPage } from "./components/MainPage/MainPage";
 
 function App() {
   return (

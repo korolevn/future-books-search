@@ -9,7 +9,7 @@ export function Search({value, setValue}) {
                 className="search-container__input"
                 type="text" 
                 value={value}
-                onInput={(e) => {setValue(e.target.value)}}
+                onInput={(e) => {setValue(e.target.value);}}
             />
             <button className="search-container__button">search</button>
         </div>

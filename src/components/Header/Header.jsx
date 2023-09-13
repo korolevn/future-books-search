@@ -1,7 +1,7 @@
 import "./Header.css";
 import { options } from "./const";
 import React from "react";
-import { useState } from "react"
+import { useState } from "react";
 import { Search } from "../Search/Search";
 import { Select } from "../Select/Select";
 import { useDispatch } from "react-redux";
@@ -32,7 +32,7 @@ export function Header() {
             category,
             sorting
         }));
-    }
+    };
 
     return (
         <div className="books-header">

@@ -3,6 +3,8 @@ import React from "react";
 import { selectBooks } from "../../features/booksSlice";
 import { useSelector } from "react-redux";
 import { BookCard } from "../BookCard/BookCard";
+import { LoadMoreButton } from "../LoadMoreButton/LoadMoreButton";
+import { Loader } from "../Loader/Loader";
 
 export function BooksContainer() {
     const {status, error, books, totalItems} = useSelector(selectBooks);
@@ -33,6 +35,8 @@ export function BooksContainer() {
                 {isResolved && foundedBooks}
             </p>
             <ul className="books-container__cards">{result}</ul>
+            {isLoaded && <Loader/>}
+            {!booksIsEmpty && !isLoaded && <LoadMoreButton/>}
         </div>
     );
 }

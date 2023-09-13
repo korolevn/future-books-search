@@ -11,7 +11,7 @@ export function buildRequest (params) {
     if (sorting) {
         result += `&orderBy=${sorting}`;
     }
-    result += `&startIndex=${startIndex}&maxResults=${MAX_RESULTS}&key=${API_KEY}`
+    result += `&startIndex=${startIndex}&maxResults=${MAX_RESULTS}&key=${API_KEY}`;
 
     return result;
 }
@@ -19,7 +19,7 @@ export function buildRequest (params) {
 export const fetchBooks = createAsyncThunk("books/fetchBooks", async (params) => {
     try {
         return await fetch(`${URL}?${buildRequest(params)}`)
-        .then(res => res.ok ? res.json() : Promise.reject(`Error`));
+        .then(res => res.ok ? res.json() : Promise.reject("Error"));
     } catch (e) {
         return  "Error loading data from server";
     }
@@ -40,11 +40,11 @@ export const booksSlice = createSlice({
     },
     extraReducers: {
         [fetchBooks.pending]: state => {
-            state.status = 'loading';
+            state.status = "loading";
             state.error = null;
         },
         [fetchBooks.fulfilled]: (state, action) => {
-            state.status = 'resolved';
+            state.status = "resolved";
             if (state.books.length === 0) {
                 state.books = action.payload.items;
                 state.totalItems = action.payload.totalItems;
@@ -53,11 +53,11 @@ export const booksSlice = createSlice({
             }
         },
         [fetchBooks.rejected]: (state, action) => {
-            state.status = 'rejected';
+            state.status = "rejected";
             state.error = action.error;
         },
     }
-})
+});
 
 export const { clearBooks } = booksSlice.actions;
 

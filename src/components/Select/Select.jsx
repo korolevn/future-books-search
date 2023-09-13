@@ -8,11 +8,11 @@ export function Select({value, setValue, options, children}) {
                 <p className="select-container__caption">{children}</p>
                 <select
                     className="select-container__select"
-                    onInput={(e) => {setValue(e.target.value)}}
+                    onInput={(e) => {setValue(e.target.value);}}
                     value={value}
                 >
                     {options.map((option, index) => {
-                        return <option key={index} value={option}>{option}</option>
+                        return <option key={index} value={option}>{option}</option>;
                     })}
                 </select>
             </label>
