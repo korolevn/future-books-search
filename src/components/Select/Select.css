@@ -1,0 +1,42 @@
+.select-container {
+    display: flex;
+  
+    margin: 0 auto;
+    max-width: 500px;
+    height: 30px;
+    width: 100%;
+  
+    justify-content: center;
+}
+  
+.select-container__label {
+    display: flex;
+  
+    width: 100%;
+    height: 100%;
+  
+    align-items: center;
+}
+  
+.select-container__caption {
+    margin: 0 10px;
+}
+  
+.select-container__select {
+    flex-grow: 1;
+    height: 100%;
+  
+    border: none;
+  
+    font-family: inherit;
+}
+  
+  
+@media (max-width: 480px) {
+    .select-container {
+      flex-wrap: wrap;
+    }
+    .select-container__label {
+      margin-top: 10px;
+    }
+}
