@@ -1,10 +1,12 @@
 import { URL, MAX_RESULTS, API_KEY } from "./const";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+const handleSearch = (search) => search.split(" ").join("+");
+
 export function buildRequest (params) {
     const {search, category, sorting, startIndex = 0} = params;
 
-    let result = `q=${search}`;
+    let result = `q=${handleSearch(search)}`;
     if (category && category !== "all") {
         result += `+subject:${category}`;
     }
@@ -17,6 +19,7 @@ export function buildRequest (params) {
 }
 
 export const fetchBooks = createAsyncThunk("books/fetchBooks", async (params) => {
+    console.log(`${URL}?${buildRequest(params)}`);
     try {
         return await fetch(`${URL}?${buildRequest(params)}`)
         .then(res => res.ok ? res.json() : Promise.reject("Error"));
