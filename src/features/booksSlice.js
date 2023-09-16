@@ -8,10 +8,10 @@ export function buildRequest (params) {
 
     let result = `q=${handleSearch(search)}`;
     if (category && category !== "all") {
-        result += `+subject:${category}`;
+        result += `+subject:${category}&`;
     }
     if (sorting) {
-        result += `&orderBy=${sorting}`;
+        result += `orderBy=${sorting}`;
     }
     result += `&startIndex=${startIndex}&maxResults=${MAX_RESULTS}&key=${API_KEY}`;
 
