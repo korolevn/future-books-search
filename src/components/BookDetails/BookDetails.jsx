@@ -38,6 +38,8 @@ export function BookDetails() {
         navigate("/");
     };
 
+    const deleteAllTags = (str) => description && str.replace(/<(\/)?\w+>/g, "");
+
     result =
     isLoaded ? 
         <Loader/>
@@ -51,7 +53,7 @@ export function BookDetails() {
                         <p className="book-details__category">{category}</p>
                         <b className="book-details__title">{title}</b>
                         <u className="book-details__authors">{authors}</u>
-                        <p className="book-details__description">{description}</p>
+                        <div className="book-details__description">{deleteAllTags(description)}</div>
                     </div>
                 </div>
                 <button 
